@@ -11,11 +11,11 @@ process.stdin.on("data", (data) => {
   } else if (cmd === "ls") {
     ls();
   } else if (cmd.slice(0, 3) === "cat") {
-    cat(cmd.slice(4));
+    cat(cmd.slice(4).split(' '));
+
   } else {
     process.stdout.write("You typed: " + cmd);
     console.log(cmd.slice(0, 2));
+    process.stdout.write("\nprompt >");
   }
-
-  process.stdout.write("\nprompt > ");
 });
