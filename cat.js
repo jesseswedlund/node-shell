@@ -1,16 +1,16 @@
 const fs = require("fs");
 
-function ls() {
-  fs.readdir("./", "utf8", (err, files) => {
+function cat(fileName) {
+  fs.readFile(fileName, "utf8", (err, files) => {
     if (err) {
       throw err;
     } else {
-      process.stdout.write(files.join("\n"));
+      process.stdout.write(files);
       process.stdout.write("prompt >");
     }
   });
 }
 
 module.exports = {
-  ls: ls,
+  cat: cat,
 };
